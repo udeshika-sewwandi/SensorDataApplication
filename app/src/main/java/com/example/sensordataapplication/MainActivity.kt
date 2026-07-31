@@ -30,6 +30,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.sensordataapplication.ui.theme.SensorDataApplicationTheme
 
+const val APP_TITLE = "Sewwandi's Sensors"
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +52,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * Composable function to display the main screen with a button.
+ */
 @Composable
 fun MainScreen(onButtonClick: () -> Unit = {}, modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize()) {
@@ -64,6 +69,9 @@ fun MainScreen(onButtonClick: () -> Unit = {}, modifier: Modifier = Modifier) {
     }
 }
 
+/**
+ * Composable function to display the main layout with a title and button.
+ */
 @Composable
 fun MainLayout(onButtonClick: () -> Unit) {
     Column(
@@ -72,7 +80,7 @@ fun MainLayout(onButtonClick: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Sewwandi's Sensors",
+            text = APP_TITLE,
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = Color(0xFF08519C)
@@ -93,26 +101,10 @@ fun MainLayout(onButtonClick: () -> Unit) {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
     SensorDataApplicationTheme {
         MainScreen()
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SensorDataApplicationTheme {
-        Greeting("Android")
     }
 }
